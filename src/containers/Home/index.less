@@ -1,0 +1,28 @@
+@import './../../theme/variable.less';
+
+.@{prefix}-home {
+  &-content {
+    .layout1 {
+      .layout1-sider {
+        width    : @leftMenuWidth  !important;
+        height   : 100vh;
+        min-width: @leftMenuWidth  !important;
+        flex     : none !important;
+      }
+
+      .layout1-content {
+        overflow-y      : auto;
+        height          : calc(100vh - @topMenuHeight -@fixMenu);
+        padding         : 10px 10px;
+        background-color: @contentBgc;
+      }
+
+      .layout1-header{
+        background-color: #fff;
+        padding         : 0;
+        height: @topMenuHeight;
+      }
+    }
+
+  }
+}

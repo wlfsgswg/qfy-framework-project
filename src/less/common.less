@@ -1,0 +1,108 @@
+.l-left {
+  float: left;
+}
+
+.r-right {
+  float: right;
+}
+
+.clearfix:after {
+  content   : ".";
+  display   : block;
+  height    : 0;
+  clear     : both;
+  visibility: hidden;
+}
+
+//定义
+.padding(@n, @i: 5) when (@i <=@n) {
+  .p-t-@{i} {
+    padding-top: unit(@i, px);
+  }
+
+  .p-b-@{i} {
+    padding-bottom: unit(@i, px);
+  }
+
+  .p-l-@{i} {
+    padding-left: unit(@i, px);
+  }
+
+  .p-r-@{i} {
+    padding-right: unit(@i, px);
+  }
+
+  .padding(@n, (@i + 5));
+}
+
+.margin(@n, @i: 5) when (@i <=@n) {
+  .m-t-@{i} {
+    margin-top: unit(@i, px);
+  }
+
+  .m-b-@{i} {
+    margin-bottom: unit(@i, px);
+  }
+
+  .m-l-@{i} {
+    margin-left: unit(@i, px);
+  }
+
+  .m-r-@{i} {
+    margin-right: unit(@i, px);
+  }
+
+  .margin(@n, (@i + 5));
+}
+
+// 调用
+.padding(30);
+.margin(30);
+
+.c999 {
+  color: #999;
+}
+
+.c333 {
+  color: #333;
+}
+
+.c666 {
+  color: #666;
+}
+
+.red {
+  color: red;
+}
+
+.suc {
+  color: #497eef;
+}
+
+// 模拟antd
+.imit-antd-footer {
+  padding      : 10px 16px;
+  text-align   : right;
+  background   : transparent;
+  border-top   : 1px solid #f0f0f0;
+  border-radius: 0 0 2px 2px;
+}
+
+// 超出两行省略号
+.line-2{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.t-a-r{
+  text-align: right;
+}
+.t-a-c{
+  text-align: center;
+}
