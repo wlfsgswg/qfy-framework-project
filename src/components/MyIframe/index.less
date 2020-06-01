@@ -1,0 +1,15 @@
+@import './../../theme/variable.less';
+
+.@{prefix}-component-iframe {
+  &-content {
+    .iframe-content {
+      width  : 100%;
+      // iframe和其他元素结构不同单独处理
+      height : calc(100vh - @topMenuHeight - @fixMenu - 26px);
+      border : none;
+      margin : 0;
+      padding: 0;
+      display: inline-block;
+    }
+  }
+}

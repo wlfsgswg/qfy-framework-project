@@ -8,6 +8,7 @@ import Title from "./Title";
 import TitleBack from "./TitleBack";
 import MyBasicTable from "./MyBasicTable";
 import FixMenu from "./FixMenu";
+import MyIframe from "./MyIframe";
 export {
   LeftMenu,
   MyIcon,
@@ -19,4 +20,5 @@ export {
   TitleBack,
   MyBasicTable as Table,
   FixMenu,
+  MyIframe,
 };
