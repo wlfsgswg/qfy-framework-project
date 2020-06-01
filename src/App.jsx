@@ -5,7 +5,7 @@ import { routes } from "./routes";
 import { classPrefix } from "./const";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-const cookie = "658484CA907B6F6DF1DF3CDBA214B2B4";
+const cookie = "66D51FB15AF3B7B50FE00BFD8318B9C7";
 class App extends Component {
   componentDidMount() {
     // 此处获取码表，并把它保存到store
