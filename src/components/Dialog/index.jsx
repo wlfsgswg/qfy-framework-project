@@ -43,7 +43,7 @@ export default class Dialog extends Component {
     );
   }
 }
-
+//c s
 Dialog.propTypes = {
   visible: PropTypes.bool,
   className: PropTypes.string,
