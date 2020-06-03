@@ -7,7 +7,7 @@ class Personnel extends React.Component {
     return (
       <div className={`${classPrefix}-home-personnel`}>
         <div className={`${classPrefix}-home-personnel-content`}>
-          <MyIframe src="http://www.baidu.com" />
+          <MyIframe src="http://192.168.1.9:9024/main#/" title="智能人事" />
         </div>
       </div>
     );
