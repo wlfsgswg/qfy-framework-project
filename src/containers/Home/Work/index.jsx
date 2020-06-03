@@ -5,6 +5,11 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 class Work extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     const { history, addMenu, changeFocus } = this.props;
     return (

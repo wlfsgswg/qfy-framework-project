@@ -1441,6 +1441,11 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
+"@types/js-md5@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.npm.taobao.org/@types/js-md5/download/@types/js-md5-0.4.2.tgz#95b39911e2081bf2915436e61cc345e12459e5bb"
+  integrity sha1-lbOZEeIIG/KRVDbmHMNF4SRZ5bs=
+
 "@types/json-schema@^7.0.3":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
@@ -3250,6 +3255,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     ripemd160 "^2.0.0"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+create-react-context@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npm.taobao.org/create-react-context/download/create-react-context-0.3.0.tgz#546dede9dc422def0d3fc2fe03afe0bc0f4f7d8c"
+  integrity sha1-VG3t6dxCLe8NP8L+A6/gvA9PfYw=
+  dependencies:
+    gud "^1.0.0"
+    warning "^4.0.3"
 
 cross-spawn@7.0.1:
   version "7.0.1"
@@ -6239,6 +6252,11 @@ jest@24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
+js-md5@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.npm.taobao.org/js-md5/download/js-md5-0.7.3.tgz#b4f2fbb0b327455f598d6727e38ec272cd09c3f2"
+  integrity sha1-tPL7sLMnRV9ZjWcn447Ccs0Jw/I=
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -9069,6 +9087,16 @@ rc-virtual-list@^1.1.0, rc-virtual-list@^1.1.2:
     raf "^3.4.1"
     rc-util "^4.8.0"
 
+react-activation@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npm.taobao.org/react-activation/download/react-activation-0.5.0.tgz#3177bca439c12df45bf6ea8567fa93e4533b7d59"
+  integrity sha1-MXe8pDnBLfRb9uqFZ/qT5FM7fVk=
+  dependencies:
+    create-react-context "^0.3.0"
+    hoist-non-react-statics "^3.3.0"
+    jsx-ast-utils "^2.2.1"
+    react-node-key "^0.0.4"
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
@@ -9131,10 +9159,26 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-keep-alive@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.npm.taobao.org/react-keep-alive/download/react-keep-alive-2.5.2.tgz#c0b8118f3dd6743323d1662b8368e6ebd649e81a"
+  integrity sha1-wLgRjz3WdDMj0WYrg2jm69ZJ6Bo=
+  dependencies:
+    "@types/js-md5" "^0.4.2"
+    hoist-non-react-statics "^3.3.0"
+    js-md5 "^0.7.3"
+
 react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
+
+react-node-key@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npm.taobao.org/react-node-key/download/react-node-key-0.0.4.tgz#b65451e4a4643a8ff8adf306c3d8cfbeaabc1d31"
+  integrity sha1-tlRR5KRkOo/4rfMGw9jPvqq8HTE=
+  dependencies:
+    jsx-ast-utils "^2.2.1"
 
 react-redux@^7.2.0:
   version "7.2.0"

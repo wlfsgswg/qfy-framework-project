@@ -3,6 +3,9 @@ import { classPrefix } from "../../const";
 import PropTypes from "prop-types";
 import "./index.less";
 class MyIframe extends React.Component {
+  componentDidMount() {
+    // document.getElementById('my-iframe')
+  }
   render() {
     const { src, className, title, ...rest } = this.props;
     return (
@@ -15,7 +18,6 @@ class MyIframe extends React.Component {
             src={src}
             {...rest}
           ></iframe>
-          {/* <div className="iframe-content"></div> */}
         </div>
       </div>
     );
