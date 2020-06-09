@@ -1,0 +1,43 @@
+@import './../../../theme/variable.less';
+
+.@{prefix}-home-work {
+    height          : 100%;
+    background-color: #fff;
+
+    &-content {
+        padding: 20px;
+
+        .title {
+            color         : #000;
+            font-weight   : 600;
+            font-size     : 25px;
+            padding-bottom: 20px;
+        }
+
+        .app-item {
+            padding-bottom: 30px;
+
+            &-img {
+                border: 5px solid #999;
+                width : 90px;
+                height: 90px;
+
+                img {
+                    width : 80px;
+                    height: 80px;
+                }
+            }
+            &-text{
+                line-height: 22px;
+                &-title{
+                    color: #000;
+                    font-weight: 600;
+                }
+                &-desc{
+                    color: #497eef;
+                }
+            }
+        }
+    }
+
+}

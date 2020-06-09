@@ -5,14 +5,14 @@ import { routes } from "./routes";
 import { classPrefix } from "./const";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-const cookie = "083898D7F17DC1E20CEB2FE0454678D4";
+// const cookie = "083898D7F17DC1E20CEB2FE0454678D4";
 class App extends Component {
   componentDidMount() {
     // 此处获取码表，并把它保存到store
-    Request.post(`/code/codesJson`, {}).then((res) => {
-      if (res.status === 200) this.props.addCodeTable(res.data);
-    });
-    document.cookie = `JSESSIONID=${cookie}`;
+    // Request.post(`/code/codesJson`, {}).then((res) => {
+    //   if (res.status === 200) this.props.addCodeTable(res.data);
+    // });
+    // document.cookie = `JSESSIONID=${cookie}`;
   }
   render() {
     return (
