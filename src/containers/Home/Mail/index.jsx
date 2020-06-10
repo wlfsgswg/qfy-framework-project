@@ -7,7 +7,7 @@ class Mail extends React.Component {
     });
   }
   render() {
-    return <div>111</div>;
+    return <div>通讯录</div>;
   }
 }
 
