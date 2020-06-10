@@ -2,7 +2,7 @@ import React from "react";
 
 class Mail extends React.Component {
   componentDidMount() {
-    Request.post(`/qfypc/dept/data`).then((res) => {
+    Request.post(`/dept/data`).then((res) => {
       console.log(res);
     });
   }
