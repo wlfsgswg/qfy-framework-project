@@ -1,0 +1,47 @@
+@import './../../../theme/variable.less';
+
+.@{prefix}-home-mail {
+    @myWidth: 250px;
+
+    &-content {
+        .layout-mail {
+            background-color: #fff;
+
+            .layout-mail-sider {
+                width           : @myWidth  !important;
+                height          : calc(100vh - @topMenuHeight);
+                min-width       : @myWidth  !important;
+                flex            : none !important;
+                background-color: #fff;
+                border-right    : 1px solid @border;
+                overflow-y      : auto;
+                overflow-x      : hidden;
+            }
+
+            .layout-mail-content {
+                overflow-y: auto;
+                height    : calc(100vh - @topMenuHeight);
+            }
+        }
+
+        &-sider {
+            padding: 20px;
+
+            .content-sider-content {
+                width      : 100%;
+                padding-top: 200px;
+                text-align : center;
+            }
+        }
+
+        &-content {
+            padding: 20px;
+
+            .content-no {
+                width      : 100%;
+                padding-top: 200px;
+                text-align : center;
+            }
+        }
+    }
+}
