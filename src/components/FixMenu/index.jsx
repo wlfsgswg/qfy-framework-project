@@ -42,7 +42,9 @@ class FixMenu extends React.Component {
                 <div className="pos">
                   <CloseOutlined
                     className="icon"
-                    onClick={() => {
+                    onClick={(e) => {
+                      // 注意冒泡
+                      e.stopPropagation();
                       const iframeArr = document.querySelectorAll(
                         ".iframe-content"
                       );

@@ -32,7 +32,6 @@ class Work extends React.Component {
 
   handleBintang = (e) => {
     const { addMenu, changeFocus } = this.props;
-    console.log(e);
     Request.post(`/work/getAppUrl`, { appId: e.appId }).then((res) => {
       addMenu({ title: e.appName, focus: e.appId });
       changeFocus(e.appId);
