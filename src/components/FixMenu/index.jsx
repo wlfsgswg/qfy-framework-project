@@ -13,14 +13,7 @@ class FixMenu extends React.Component {
   }
   componentDidMount() {}
   render() {
-    const {
-      history,
-      location,
-      menu,
-      focus,
-      changeFocus,
-      deleteMenu,
-    } = this.props;
+    const { location, menu, focus, changeFocus, deleteMenu } = this.props;
     return (
       <div className={`${classPrefix}-component-fixmenu`}>
         <div className={`${classPrefix}-component-fixmenu-content clearfix`}>
@@ -32,7 +25,7 @@ class FixMenu extends React.Component {
               key={it.focus}
               onClick={() => {
                 if (location.pathname !== it.link) {
-                  history.push(it.link);
+                  // history.push(it.link);
                   changeFocus(it.focus);
                 }
               }}
@@ -46,7 +39,7 @@ class FixMenu extends React.Component {
                       e.stopPropagation();
                       deleteMenu(it);
                       changeFocus(1);
-                      history.push("/");
+                      // history.push("/");
                     }}
                   />
                 </div>

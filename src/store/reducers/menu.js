@@ -1,4 +1,4 @@
-const array = [{ title: "工作台", link: "/work", focus: 1 }];
+const array = [{ title: "工作台", focus: 1 }];
 const menu = (state = array, action) => {
   switch (action.type) {
     case "ADD-MENU":

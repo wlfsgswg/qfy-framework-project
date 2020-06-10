@@ -47,11 +47,21 @@ method.forEach((item) => {
         )
       )
         .then((res) => {
-          resolve(res);
+          // 企蜂云后台报错依然走状态码200，但是data里面code可以作为区分，如果不是‘00000’均需要按报错处理，抛出desc就行
+          if (res.data && res.data.code && res.data.code !== "00000") {
+            message.error(
+              res.data && res.data.desc && res.data.desc
+                ? res.data && res.data.desc && res.data.desc
+                : "请求出错！"
+            );
+            reject(res);
+          } else {
+            resolve(res);
+          }
         })
         .catch((error) => {
           console.log("后台开始报错啦");
-          // console.log(error.response);
+          console.log(error.response);
           if (
             error.response &&
             error.response.status &&

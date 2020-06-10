@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { renderRoutes } from "react-router-config";
-import { LeftMenu, MyHeader, FixMenu } from "./../../components";
+import { LeftMenu, MyHeader } from "./../../components";
 import { classPrefix } from "./../../const";
 import "./index.less";
 import { Layout } from "antd";
@@ -21,7 +21,6 @@ class Home extends React.Component {
               <Header className="layout1-header">
                 <MyHeader />
               </Header>
-              <FixMenu />
               <Content className="layout1-content">
                 {renderRoutes(this.props.route.routes)}
               </Content>
