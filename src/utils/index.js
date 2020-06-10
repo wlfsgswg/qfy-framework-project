@@ -218,3 +218,32 @@ export const timeStamp = (second_time) => {
   }
   return time;
 };
+
+// 生成iframe方法
+export const handleGetIframe = (src, title) => {
+  const iframeArr = document.querySelectorAll(".iframe-content");
+
+  for (let i = 0; i < iframeArr.length; i++) {
+    if (iframeArr[i].getAttribute("title") === title) {
+      // 如果有先删掉
+      document.getElementById("root").removeChild(iframeArr[i]);
+    } else {
+      iframeArr[i].setAttribute("style", "display:none;");
+    }
+  }
+  // 重新生成该选项卡
+  const iframe = document.createElement("iframe");
+  iframe.setAttribute("src", src);
+  iframe.setAttribute("class", "iframe-content");
+  iframe.setAttribute("title", title);
+  iframe.setAttribute("style", "display:inline-block;");
+  document.getElementById("root").append(iframe);
+};
+
+// 隐藏所有iframe
+export const displayNoneAllIframe = () => {
+  const iframeArr = document.querySelectorAll(".iframe-content");
+  for (let i = 0; i < iframeArr.length; i++) {
+    iframeArr[i].setAttribute("style", "display:none;");
+  }
+};

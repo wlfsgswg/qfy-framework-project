@@ -3,6 +3,7 @@ import { classPrefix } from "./../../const";
 import MyIcon from "./../MyIcon";
 import { menuTop, menuBottom } from "./type";
 import { withRouter } from "react-router-dom";
+import { displayNoneAllIframe, routeMatching } from "./../../utils";
 import "./index.less";
 class LeftMenu extends React.Component {
   render() {
@@ -25,6 +26,9 @@ class LeftMenu extends React.Component {
                     className="bottom-tabs"
                     onClick={() => {
                       history.push(it.path);
+                      if (routeMatching(it.path) !== "/work") {
+                        // displayNoneAllIframe();
+                      }
                     }}
                   >
                     <MyIcon type={it.icon} className="bottom-tabs-icon" />
@@ -39,6 +43,9 @@ class LeftMenu extends React.Component {
                     key={it.path}
                     onClick={() => {
                       history.push(it.path);
+                      if (routeMatching(it.path) !== "/work") {
+                        // displayNoneAllIframe();
+                      }
                     }}
                   >
                     <MyIcon type={it.icon} className="bottom-tabs-icon" />

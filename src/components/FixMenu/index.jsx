@@ -24,9 +24,16 @@ class FixMenu extends React.Component {
               } menu-item l-left `}
               key={it.focus}
               onClick={() => {
-                if (location.pathname !== it.link) {
-                  // history.push(it.link);
-                  changeFocus(it.focus);
+                changeFocus(it.focus);
+                const iframeArr = document.querySelectorAll(".iframe-content");
+                for (let i = 0; i < iframeArr.length; i++) {
+                  iframeArr[i].setAttribute("style", "display:none;");
+                  if (
+                    it.focus !== 1 &&
+                    iframeArr[i].getAttribute("title") === it.title
+                  ) {
+                    iframeArr[i].setAttribute("style", "display:inline-block;");
+                  }
                 }
               }}
             >
@@ -35,11 +42,19 @@ class FixMenu extends React.Component {
                 <div className="pos">
                   <CloseOutlined
                     className="icon"
-                    onClick={(e) => {
-                      e.stopPropagation();
+                    onClick={() => {
+                      const iframeArr = document.querySelectorAll(
+                        ".iframe-content"
+                      );
+                      for (let i = 0; i < iframeArr.length; i++) {
+                        if (iframeArr[i].getAttribute("title") === it.title) {
+                          document
+                            .getElementById("root")
+                            .removeChild(iframeArr[i]);
+                        }
+                      }
                       deleteMenu(it);
                       changeFocus(1);
-                      // history.push("/");
                     }}
                   />
                 </div>

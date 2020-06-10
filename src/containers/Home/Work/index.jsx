@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import "./index.less";
 import { Row, Col } from "antd";
 import { FixMenu } from "./../../../components";
+import { handleGetIframe } from "./../../../utils";
 const colSpan = 8;
 class Work extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Work extends React.Component {
   }
 
   componentDidMount() {
-    Request.post(`/qfypc/work/home`).then((res) => {
+    Request.post(`/work/home`).then((res) => {
       if (res.status === 200) {
         this.setState({
           data:
@@ -31,10 +32,11 @@ class Work extends React.Component {
 
   handleBintang = (e) => {
     const { addMenu, changeFocus } = this.props;
-    Request.post(`/qfypc/work/getAppUrl`, { appId: e.appId }).then((res) => {
-      console.log(res);
-      addMenu({ title: "智能人事", focus: 3 });
-      changeFocus(3);
+    console.log(e);
+    Request.post(`/work/getAppUrl`, { appId: e.appId }).then((res) => {
+      addMenu({ title: e.appName, focus: e.appId });
+      changeFocus(e.appId);
+      handleGetIframe(res.data.data, e.appName);
     });
   };
 
