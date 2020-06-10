@@ -2,12 +2,18 @@ import React from "react";
 import { classPrefix } from "./../../const";
 import MyIcon from "./../MyIcon";
 import { menuTop, menuBottom } from "./type";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { displayNoneAllIframe, routeMatching } from "./../../utils";
+import {
+  displayNoneAllIframe,
+  routeMatching,
+  displayBlockId,
+} from "./../../utils";
 import "./index.less";
 class LeftMenu extends React.Component {
   render() {
-    const { history } = this.props;
+    const { history, focus } = this.props;
+
     return (
       <div className={`${classPrefix}-component-leftmenu`}>
         <div className={`${classPrefix}-component-leftmenu-content`}>
@@ -27,7 +33,9 @@ class LeftMenu extends React.Component {
                     onClick={() => {
                       history.push(it.path);
                       if (routeMatching(it.path) !== "/work") {
-                        // displayNoneAllIframe();
+                        displayNoneAllIframe();
+                      } else {
+                        displayBlockId(focus);
                       }
                     }}
                   >
@@ -44,7 +52,9 @@ class LeftMenu extends React.Component {
                     onClick={() => {
                       history.push(it.path);
                       if (routeMatching(it.path) !== "/work") {
-                        // displayNoneAllIframe();
+                        displayNoneAllIframe();
+                      } else {
+                        displayBlockId(focus);
                       }
                     }}
                   >
@@ -60,5 +70,12 @@ class LeftMenu extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    focus: state.focus,
+  };
+};
 
-export default withRouter(LeftMenu);
+const LeftMenuStore = connect(mapStateToProps)(withRouter(LeftMenu));
+
+export default LeftMenuStore;

@@ -13,7 +13,7 @@ class FixMenu extends React.Component {
   }
   componentDidMount() {}
   render() {
-    const { location, menu, focus, changeFocus, deleteMenu } = this.props;
+    const { menu, focus, changeFocus, deleteMenu } = this.props;
     return (
       <div className={`${classPrefix}-component-fixmenu`}>
         <div className={`${classPrefix}-component-fixmenu-content clearfix`}>

@@ -36,7 +36,7 @@ class Work extends React.Component {
     Request.post(`/work/getAppUrl`, { appId: e.appId }).then((res) => {
       addMenu({ title: e.appName, focus: e.appId });
       changeFocus(e.appId);
-      handleGetIframe(res.data.data, e.appName);
+      handleGetIframe(res.data.data, e.appName, e.appId);
     });
   };
 

@@ -220,7 +220,7 @@ export const timeStamp = (second_time) => {
 };
 
 // 生成iframe方法
-export const handleGetIframe = (src, title) => {
+export const handleGetIframe = (src, title, id) => {
   const iframeArr = document.querySelectorAll(".iframe-content");
 
   for (let i = 0; i < iframeArr.length; i++) {
@@ -236,6 +236,7 @@ export const handleGetIframe = (src, title) => {
   iframe.setAttribute("src", src);
   iframe.setAttribute("class", "iframe-content");
   iframe.setAttribute("title", title);
+  iframe.setAttribute("id", id);
   iframe.setAttribute("style", "display:inline-block;");
   document.getElementById("root").append(iframe);
 };
@@ -245,5 +246,16 @@ export const displayNoneAllIframe = () => {
   const iframeArr = document.querySelectorAll(".iframe-content");
   for (let i = 0; i < iframeArr.length; i++) {
     iframeArr[i].setAttribute("style", "display:none;");
+  }
+};
+
+// 匹配id特殊iframe显示
+
+export const displayBlockId = (id) => {
+  const iframeArr = document.querySelectorAll(".iframe-content");
+  for (let i = 0; i < iframeArr.length; i++) {
+    if (iframeArr[i].getAttribute("id") === id) {
+      iframeArr[i].setAttribute("style", "display:inline-block;");
+    }
   }
 };
