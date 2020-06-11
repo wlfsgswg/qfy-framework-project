@@ -20,6 +20,49 @@ class Mail extends React.Component {
       list: [],
       loading: false,
       id: "",
+      columns: [
+        {
+          title: "姓名",
+          dataIndex: "qfyAcctName",
+          key: "qfyAcctName",
+          width: 120,
+        },
+        {
+          title: "手机号",
+          dataIndex: "qfyAcct",
+          key: "qfyAcct",
+          width: 150,
+          render: (text, record) => {
+            return (
+              <div className="clearfix">
+                <div className="l-left" style={{ width: "130px" }}>
+                  {text ? text : "--"}
+                </div>
+                <div
+                  className="l-left"
+                  style={{ color: "#497eef", cursor: "pointer" }}
+                  onClick={() => {
+                    const { columns } = this.state;
+                    record.qfyAcct = record.qfyAcctShow;
+                    this.setState({ columns: columns });
+                  }}
+                >
+                  查看
+                </div>
+              </div>
+            );
+          },
+        },
+        {
+          title: "职务",
+          dataIndex: "jobName",
+          key: "jobName",
+          width: 130,
+          render: (text) => {
+            return <div>{text ? text : "--"}</div>;
+          },
+        },
+      ],
     };
   }
   componentDidMount() {
@@ -39,6 +82,7 @@ class Mail extends React.Component {
         it.key = it.deptId;
         if (it.children && it.children.length !== 0)
           this.handleData(it.children);
+        return undefined;
       });
     }
     return e;
@@ -71,34 +115,9 @@ class Mail extends React.Component {
       .catch(() => this.setState({ loading: false }));
   };
   render() {
-    const { data, loading, list, tableObj } = this.state;
+    const { data, loading, list, tableObj, columns } = this.state;
     const treeData = this.handleData(data);
-    const columns = [
-      {
-        title: "姓名",
-        dataIndex: "qfyAcctName",
-        key: "qfyAcctName",
-        width: 120,
-      },
-      {
-        title: "手机号",
-        dataIndex: "qfyAcct",
-        key: "qfyAcct",
-        width: 150,
-        render: (text) => {
-          return <div>{text ? text : "--"}</div>;
-        },
-      },
-      {
-        title: "职务",
-        dataIndex: "deptName",
-        key: "deptName",
-        width: 130,
-        render: (text) => {
-          return <div>{text ? text : "--"}</div>;
-        },
-      },
-    ];
+
     return (
       <div className={`${classPrefix}-home-mail`}>
         <div className={`${classPrefix}-home-mail-content`}>
