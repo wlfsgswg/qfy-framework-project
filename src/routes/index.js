@@ -1,27 +1,26 @@
-import { Login, Home, NotFound, Help, Feedback } from "./../containers";
-//
+// import { Login, Home, NotFound, Help, Feedback } from "./../containers";
+import { Home, NotFound } from "./../containers";
 import {
-  AppModal,
-  BackstageModal,
+  // AppModal,
+  // BackstageModal,
   MailModal,
   MessageModal,
   UserModal,
   WorkModal,
-  PersonnelModal,
 } from "./../containers/Home/index.js";
 export const routes = [
-  {
-    path: "/login",
-    component: Login,
-  },
-  {
-    path: "/help",
-    component: Help,
-  },
-  {
-    path: "/feedback",
-    component: Feedback,
-  },
+  // {
+  //   path: "/login",
+  //   component: Login,
+  // },
+  // {
+  //   path: "/help",
+  //   component: Help,
+  // },
+  // {
+  //   path: "/feedback",
+  //   component: Feedback,
+  // },
   {
     path: "/",
     component: Home,
@@ -47,26 +46,22 @@ export const routes = [
         component: MailModal,
         routes: [],
       },
-      {
-        path: "/app",
-        component: AppModal,
-        routes: [],
-      },
-      {
-        path: "/backstage",
-        component: BackstageModal,
-        routes: [],
-      },
+      // {
+      //   path: "/app",
+      //   component: AppModal,
+      //   routes: [],
+      // },
+      // {
+      //   path: "/backstage",
+      //   component: BackstageModal,
+      //   routes: [],
+      // },
       {
         path: "/user",
         component: UserModal,
         routes: [],
       },
-      {
-        path: "/personnel",
-        component: PersonnelModal,
-        routes: [],
-      },
+
       {
         path: "*",
         component: NotFound,

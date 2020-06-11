@@ -26,9 +26,9 @@ class LeftMenu extends React.Component {
             </div>
             <div className="bottom">
               <div>
-                {menuTop.map((it) => (
+                {menuTop.map((it, i) => (
                   <div
-                    key={it.path}
+                    key={i}
                     className="bottom-tabs"
                     onClick={() => {
                       history.push(it.path);
@@ -45,12 +45,14 @@ class LeftMenu extends React.Component {
                 ))}
               </div>
               <div>
-                {menuBottom.map((it) => (
+                {menuBottom.map((it, i) => (
                   <div
                     className="bottom-tabs"
-                    key={it.path}
+                    key={i}
                     onClick={() => {
-                      history.push(it.path);
+                      if (it.path) history.push(it.path);
+                      if (it.title === "管理后台")
+                        window.open("http://www.baidu.com");
                       if (routeMatching(it.path) !== "/work") {
                         displayNoneAllIframe();
                       } else {

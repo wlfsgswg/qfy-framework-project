@@ -22,13 +22,13 @@ const menuTop = [
 const menuBottom = [
   {
     title: "切换应用",
-    path: "/app",
+    path: "",
     icon: "iconqiehuan",
     focus: 3,
   },
   {
     title: "管理后台",
-    path: "/backstage",
+    path: "",
     icon: "iconhoutaizonglan",
     focus: 4,
   },
