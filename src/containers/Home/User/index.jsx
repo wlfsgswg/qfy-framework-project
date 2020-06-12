@@ -3,6 +3,10 @@ import { classPrefix } from "./../../../const";
 import { Title } from "./../../../components";
 import { Row, Col, Spin } from "antd";
 import "./index.less";
+import * as HeadChangeDialog from "./HeadChangeDialog";
+import * as AttestationDialog from "./AttestationDialog";
+import * as BindMailDialog from "./BindMailDialog";
+
 class User extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +32,7 @@ class User extends React.Component {
 
   componentDidMount() {
     this.handleGetUserDetail();
-    // this.handleGetUserOrtherDetail();
+    this.handleGetUserOrtherDetail();
   }
   // 获取用户基本资料
   handleGetUserDetail = () => {
@@ -66,6 +70,27 @@ class User extends React.Component {
         this.setState({ loadingBottom: false });
       });
   };
+  // 修改头像
+  handleChangeHead = () => {
+    HeadChangeDialog.open({
+      data: {},
+      onSuccess: () => {},
+    });
+  };
+  // 立即认证
+  handleAttestation = () => {
+    AttestationDialog.open({
+      data: {},
+      onSuccess: () => {},
+    });
+  };
+  // 绑定邮箱
+  handleBindMail = () => {
+    BindMailDialog.open({
+      data: {},
+      onSuccess: () => {},
+    });
+  };
   render() {
     const { detail, loadingTop } = this.state;
     // console.log(detail);
@@ -79,7 +104,12 @@ class User extends React.Component {
                 <div className="content clearfix">
                   <div className="l-left content-left">
                     <div className="content-left-img">
-                      <div className="content-left-img-pos">修改头像</div>
+                      <div
+                        className="content-left-img-pos"
+                        onClick={this.handleChangeHead}
+                      >
+                        修改头像
+                      </div>
                       {detail.headImg ? (
                         <img src={detail.headImg} alt="" />
                       ) : (
@@ -103,7 +133,12 @@ class User extends React.Component {
                         {detail.isRealName && detail.isRealName ? (
                           <div className="status-yes">已实名</div>
                         ) : (
-                          <div className="status-no suc pointer">立即认证</div>
+                          <div
+                            className="status-no suc pointer"
+                            onClick={this.handleAttestation}
+                          >
+                            立即认证
+                          </div>
                         )}
                       </div>
                     </div>
@@ -142,7 +177,12 @@ class User extends React.Component {
                               {detail.email && detail.email ? (
                                 detail.email
                               ) : (
-                                <span className="pointer suc">绑定邮箱</span>
+                                <span
+                                  className="pointer suc"
+                                  onClick={this.handleBindMail}
+                                >
+                                  绑定邮箱
+                                </span>
                               )}
                             </div>
                           </div>
