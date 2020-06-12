@@ -108,7 +108,6 @@ class User extends React.Component {
   };
   render() {
     const { detail, loadingTop } = this.state;
-    // console.log(detail);
     return (
       <div className={`${classPrefix}-home-user`}>
         <div className={`${classPrefix}-home-user-content`}>

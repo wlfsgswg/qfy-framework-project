@@ -11,6 +11,7 @@
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "antd": "^4.1.4",
+    "antd-img-crop": "^3.4.2",
     "axios": "^0.19.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
@@ -40,7 +41,8 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
-    "less": "^3.11.1",
+    "less": "^3.4.2",
+    "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "0.9.0",
     "moment": "^2.24.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
@@ -51,7 +53,6 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "react": "^16.13.1",
-    "react-activation": "^0.5.0",
     "react-app-polyfill": "^1.0.6",
     "react-avatar-editor": "^11.0.9",
     "react-dev-utils": "^10.2.1",
@@ -59,6 +60,7 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
     "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -148,9 +150,6 @@
       "react-app"
     ]
   },
-  "devDependencies": {
-    "less-loader": "^5.0.0",
-    "react-router-dom": "^5.1.2"
-  },
+  "devDependencies": {},
   "proxy": "http://192.168.1.15:9987"
 }
