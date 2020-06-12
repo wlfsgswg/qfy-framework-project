@@ -1,12 +1,13 @@
 import React from "react";
 import { classPrefix } from "./../../../const";
-import { Title } from "./../../../components";
+import { Title, MyIcon } from "./../../../components";
 import { Row, Col, Spin } from "antd";
 import "./index.less";
 import * as HeadChangeDialog from "./HeadChangeDialog";
 import * as AttestationDialog from "./AttestationDialog";
 import * as BindMailDialog from "./BindMailDialog";
-
+import * as UnboundMailDialog from "./UnboundMailDialog";
+import * as SettingPhoneDialog from "./SettingPhoneDialog";
 class User extends React.Component {
   constructor(props) {
     super(props);
@@ -91,6 +92,20 @@ class User extends React.Component {
       onSuccess: () => {},
     });
   };
+  // 解绑邮箱
+  handleUnMail = () => {
+    UnboundMailDialog.open({
+      data: {},
+      onSuccess: () => {},
+    });
+  };
+  // 设置手机号
+  handleSetPhone = () => {
+    SettingPhoneDialog.open({
+      data: {},
+      onSuccess: () => {},
+    });
+  };
   render() {
     const { detail, loadingTop } = this.state;
     // console.log(detail);
@@ -154,6 +169,13 @@ class User extends React.Component {
                                 ? detail.phone
                                 : "--"}
                             </div>
+                            <div className="l-left m-l-10">
+                              <MyIcon
+                                type="iconbianji"
+                                className="pointer"
+                                onClick={this.handleSetPhone}
+                              />
+                            </div>
                           </div>
                           <div className="content-right-item-list clearfix">
                             <div className="l-left p-r-10 list-labal">
@@ -175,7 +197,15 @@ class User extends React.Component {
                             </div>
                             <div className="l-left list-value">
                               {detail.email && detail.email ? (
-                                detail.email
+                                <span>
+                                  <span>{detail.email}</span>
+                                  <span
+                                    className="m-l-20 suc pointer"
+                                    onClick={this.handleUnMail}
+                                  >
+                                    解绑
+                                  </span>
+                                </span>
                               ) : (
                                 <span
                                   className="pointer suc"
