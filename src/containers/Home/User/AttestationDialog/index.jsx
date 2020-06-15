@@ -42,7 +42,8 @@ class DialogExample extends React.Component {
       .catch(() => this.setState({ loading: false }));
   };
   render() {
-    const { afterClose, getContainer, loading, data } = this.props;
+    const { loading } = this.state;
+    const { afterClose, getContainer, data } = this.props;
     return (
       <Dialog
         title={"实名认证"}

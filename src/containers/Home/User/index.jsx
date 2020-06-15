@@ -98,7 +98,10 @@ class User extends React.Component {
   handleBindMail = () => {
     BindMailDialog.open({
       data: {},
-      onSuccess: () => {},
+      onSuccess: (obj) => {
+        const { detail } = this.state;
+        this.setState({ ...detail, email: obj.mailAcct });
+      },
     });
   };
   // 解绑邮箱
