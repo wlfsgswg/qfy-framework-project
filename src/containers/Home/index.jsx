@@ -1,13 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { renderRoutes } from "react-router-config";
-// import { LeftMenu, MyHeader } from "./../../components";
+import { LeftMenu, MyHeader } from "./../../components";
 import { classPrefix } from "./../../const";
 import "./index.less";
 import { Layout } from "antd";
 
-// const { Header, Sider, Content } = Layout;
-const { Content } = Layout;
+const { Header, Sider, Content } = Layout;
 class Home extends React.Component {
   componentDidMount() {}
   render() {
@@ -15,13 +14,13 @@ class Home extends React.Component {
       <div className={`${classPrefix}-home`}>
         <div className={`${classPrefix}-home-content`}>
           <Layout className="layout1">
-            {/* <Sider className="layout1-sider">
+            <Sider className="layout1-sider">
               <LeftMenu />
-            </Sider> */}
+            </Sider>
             <Layout>
-              {/* <Header className="layout1-header">
+              <Header className="layout1-header">
                 <MyHeader />
-              </Header> */}
+              </Header>
               <Content className="layout1-content">
                 {renderRoutes(this.props.route.routes)}
               </Content>

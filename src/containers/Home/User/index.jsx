@@ -85,9 +85,13 @@ class User extends React.Component {
   };
   // 立即认证
   handleAttestation = () => {
+    const { detail } = this.state;
     AttestationDialog.open({
-      data: {},
-      onSuccess: () => {},
+      data: { name: detail.nickName },
+      onSuccess: (obj) => {
+        const { name } = obj;
+        this.setState({ ...detail, nickName: name, isRealName: true });
+      },
     });
   };
   // 绑定邮箱
