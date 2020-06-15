@@ -8,6 +8,7 @@ import * as AttestationDialog from "./AttestationDialog";
 import * as BindMailDialog from "./BindMailDialog";
 import * as UnboundMailDialog from "./UnboundMailDialog";
 import * as SettingPhoneDialog from "./SettingPhoneDialog";
+import OrtherChange from "./OrtherChange";
 class User extends React.Component {
   constructor(props) {
     super(props);
@@ -275,6 +276,25 @@ class User extends React.Component {
                 <div className="content2"></div>
               )}
             </Spin>
+          </div>
+          <div className={`${classPrefix}-home-user-content-orther`}>
+            <div className="orther-bottom clearfix">
+              <div className="l-left">其他信息</div>
+              <div className="r-right">
+                <MyIcon
+                  type="iconbianji"
+                  className="pointer"
+                  // onClick={}
+                />
+              </div>
+            </div>
+            <OrtherChange
+              data={{
+                sex: detail.sex,
+                birthday: detail.birthday,
+                region: detail.region,
+              }}
+            />
           </div>
         </div>
       </div>
