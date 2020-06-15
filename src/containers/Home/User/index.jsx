@@ -75,7 +75,12 @@ class User extends React.Component {
   handleChangeHead = () => {
     HeadChangeDialog.open({
       data: {},
-      onSuccess: () => {},
+      onSuccess: (e) => {
+        const { detail } = this.state;
+        this.setState({
+          detail: { ...detail, headImg: e },
+        });
+      },
     });
   };
   // 立即认证

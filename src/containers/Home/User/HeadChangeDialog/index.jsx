@@ -12,6 +12,7 @@ class DialogExample extends React.Component {
     super(props);
     this.state = {
       fileList: [],
+      loading: false,
     };
   }
 
@@ -23,9 +24,15 @@ class DialogExample extends React.Component {
     }
     return isLt2M;
   };
-  // 上传图片
-  onChange = ({ fileList: newFileList }) => {
-    this.setState({ fileList: newFileList });
+  // 组件阿里云上传图片
+  onChange = (e) => {
+    let { fileList } = e;
+    if (e.file && e.file.status && e.file.status !== "removed")
+      this.setState({ loading: true });
+    if (fileList && fileList.length !== 0 && fileList[0].status === "done") {
+      this.setState({ loading: false });
+    }
+    this.setState({ fileList });
   };
   // 展示图片
   onPreview = async (file) => {
@@ -42,10 +49,36 @@ class DialogExample extends React.Component {
     const imgWindow = window.open(src);
     imgWindow.document.write(image.outerHTML);
   };
+  // 修改头像接口上传
+  handleUploading = () => {
+    const { fileList } = this.state;
+    if (!fileList.length) return message.warning("请先上传头像！");
+    const urlId =
+      fileList[0] &&
+      fileList[0].response &&
+      fileList[0].response.data &&
+      fileList[0].response.data.fileId;
+    const url =
+      fileList[0] &&
+      fileList[0].response &&
+      fileList[0].response.data &&
+      fileList[0].response.data.fileSmUrl;
+    this.setState({ loading: true });
+    Request.post(`/aAcct/updHead`, { fileId: urlId })
+      .then((res) => {
+        if (res.data && res.data.code === "00000") {
+          const { afterClose, onSuccess } = this.props;
+          afterClose();
+          onSuccess(url);
+          this.setState({ loading: false });
+        }
+      })
+      .catch(() => this.setState({ loading: false }));
+  };
 
   render() {
-    const { fileList } = this.state;
-    const { afterClose, getContainer, onSuccess } = this.props;
+    const { fileList, loading } = this.state;
+    const { afterClose, getContainer } = this.props;
     return (
       <Dialog
         title={"修改头像"}
@@ -53,19 +86,19 @@ class DialogExample extends React.Component {
         afterClose={afterClose}
         getContainer={getContainer}
         width={400}
-        // okButtonProps={{
-        //   loading: true,
-        // }}
-        onOk={() => {
-          afterClose();
-          onSuccess();
+        okButtonProps={{
+          loading,
         }}
+        onOk={this.handleUploading}
       >
         <div className={`${classPrefix}-home-user-headchange-dialog`}>
           <ImgCrop rotate>
             <Upload
               accept=".jpg,.jpeg,.png"
-              action="/fileUpload/file/upload"
+              action="/fileUpload"
+              data={{
+                isShowSmall: "Y",
+              }}
               beforeUpload={this.beforeUpload}
               listType="picture-card"
               fileList={fileList}
@@ -74,7 +107,7 @@ class DialogExample extends React.Component {
               showUploadList={{
                 showPreviewIcon: false,
                 showRemoveIcon: true,
-                showDownloadIcon: true,
+                showDownloadIcon: false,
               }}
             >
               {fileList.length === 0 && (
