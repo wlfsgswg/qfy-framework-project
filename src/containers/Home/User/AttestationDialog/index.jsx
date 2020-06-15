@@ -1,7 +1,7 @@
 import React from "react";
 import { Dialog } from "./../../../../components";
 import PropTypes from "prop-types";
-import { Form, Input } from "antd";
+import { Form, Input, Alert } from "antd";
 
 const layout = {
   labelCol: { span: 5 },
@@ -56,6 +56,12 @@ class DialogExample extends React.Component {
         }}
         onOk={this.onFinish}
       >
+        <div className="p-b-10">
+          <Alert
+            message="请输入身份证号、姓名，每日有3次认证机会。"
+            type="error"
+          />
+        </div>
         <Form
           {...layout}
           name="atte-basic-dialog"
