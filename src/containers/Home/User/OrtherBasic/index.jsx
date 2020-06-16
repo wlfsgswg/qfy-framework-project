@@ -19,7 +19,7 @@ class OrtherBasic extends React.Component {
     let sexString = "--";
     sexArr.map((it) => {
       if (it.code === data.sex) sexString = it.desc;
-      return undefined;
+      return sexString;
     });
     return (
       <div className={`${classPrefix}-home-user-orther-basic`}>

@@ -69,7 +69,9 @@ class OrtherChange extends React.Component {
                   <Radio.Group>
                     {sexArr.length !== 0 &&
                       sexArr.map((it) => (
-                        <Radio value={it.code}>{it.desc}</Radio>
+                        <Radio value={it.code} key={it.code}>
+                          {it.desc}
+                        </Radio>
                       ))}
                   </Radio.Group>
                 </Form.Item>
