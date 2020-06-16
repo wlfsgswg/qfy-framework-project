@@ -91,7 +91,9 @@ class User extends React.Component {
       data: { name: detail.nickName },
       onSuccess: (obj) => {
         const { name } = obj;
-        this.setState({ ...detail, nickName: name, isRealName: true });
+        this.setState({
+          detail: { ...detail, nickName: name, isRealName: true },
+        });
       },
     });
   };
