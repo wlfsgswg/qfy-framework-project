@@ -52,7 +52,7 @@ class OrtherChange extends React.Component {
 
   render() {
     const { loading } = this.state;
-    const { data } = this.props;
+    const { data, sexArr } = this.props;
     data.birthday = data.birthday ? moment(data.birthday) : null;
     return (
       <div className={`${classPrefix}-home-user-orther-change`}>
@@ -67,8 +67,10 @@ class OrtherChange extends React.Component {
               <Col span={spanCol}>
                 <Form.Item label="性别" name="sex">
                   <Radio.Group>
-                    <Radio value="1">男</Radio>
-                    <Radio value="2">女</Radio>
+                    {sexArr.length !== 0 &&
+                      sexArr.map((it) => (
+                        <Radio value={it.code}>{it.desc}</Radio>
+                      ))}
                   </Radio.Group>
                 </Form.Item>
               </Col>
@@ -121,6 +123,7 @@ OrtherChange.propTypes = {
   data: PropTypes.object,
   onCancel: PropTypes.func,
   onSuccess: PropTypes.func,
+  sexArr: PropTypes.array,
 };
 
 export default OrtherChange;

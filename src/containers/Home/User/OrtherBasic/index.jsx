@@ -15,7 +15,12 @@ class OrtherBasic extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, sexArr } = this.props;
+    let sexString = "--";
+    sexArr.map((it) => {
+      if (it.code === data.sex) sexString = it.desc;
+      return undefined;
+    });
     return (
       <div className={`${classPrefix}-home-user-orther-basic`}>
         <div className={`${classPrefix}-home-user-orther-basic-content`}>
@@ -26,9 +31,7 @@ class OrtherBasic extends React.Component {
                   <Col span={layout.labelCol.span}>
                     <div className="content-item-left">性别：</div>
                   </Col>
-                  <Col span={layout.wrapperCol.span}>
-                    {data.sex ? data.sex : "--"}
-                  </Col>
+                  <Col span={layout.wrapperCol.span}>{sexString}</Col>
                 </Row>
               </div>
             </Col>
@@ -65,6 +68,7 @@ class OrtherBasic extends React.Component {
 
 OrtherBasic.propTypes = {
   data: PropTypes.object,
+  sexArr: PropTypes.array,
 };
 
 export default OrtherBasic;

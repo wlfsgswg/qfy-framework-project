@@ -17,6 +17,7 @@ class User extends React.Component {
       loadingTop: false,
       loadingBottom: false,
       editOrther: false,
+      sexArr: [],
       detail: {
         isRealName: "",
         txLen: 0,
@@ -35,6 +36,7 @@ class User extends React.Component {
   }
 
   componentDidMount() {
+    this.handleGetSexArray();
     this.handleGetUserDetail();
     this.handleGetUserOrtherDetail();
   }
@@ -73,6 +75,13 @@ class User extends React.Component {
       .catch(() => {
         this.setState({ loadingBottom: false });
       });
+  };
+  // 获取性别枚举
+  handleGetSexArray = () => {
+    Request.post(`/getEnum`, { types: ["sex"] }).then((res) => {
+      if (res.data.code === "00000")
+        this.setState({ sexArr: res.data.data.sex });
+    });
   };
   // 修改头像
   handleChangeHead = () => {
@@ -124,7 +133,13 @@ class User extends React.Component {
     });
   };
   render() {
-    const { detail, loadingTop, editOrther, loadingBottom } = this.state;
+    const {
+      detail,
+      loadingTop,
+      editOrther,
+      loadingBottom,
+      sexArr,
+    } = this.state;
     return (
       <div className={`${classPrefix}-home-user`}>
         <div className={`${classPrefix}-home-user-content`}>
@@ -300,6 +315,7 @@ class User extends React.Component {
                     birthday: detail.birthday,
                     region: detail.region,
                   }}
+                  sexArr={sexArr}
                   onCancel={() => this.setState({ editOrther: false })}
                   onSuccess={(e) => {
                     const { detail } = this.state;
@@ -316,6 +332,7 @@ class User extends React.Component {
                     birthday: detail.birthday,
                     region: detail.region,
                   }}
+                  sexArr={sexArr}
                 />
               )}
             </Spin>
