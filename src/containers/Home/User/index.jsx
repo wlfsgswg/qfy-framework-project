@@ -9,12 +9,14 @@ import * as BindMailDialog from "./BindMailDialog";
 import * as UnboundMailDialog from "./UnboundMailDialog";
 import * as SettingPhoneDialog from "./SettingPhoneDialog";
 import OrtherChange from "./OrtherChange";
+import OrtherBasic from "./OrtherBasic";
 class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loadingTop: false,
       loadingBottom: false,
+      editOrther: false,
       detail: {
         isRealName: "",
         txLen: 0,
@@ -122,7 +124,7 @@ class User extends React.Component {
     });
   };
   render() {
-    const { detail, loadingTop } = this.state;
+    const { detail, loadingTop, editOrther, loadingBottom } = this.state;
     return (
       <div className={`${classPrefix}-home-user`}>
         <div className={`${classPrefix}-home-user-content`}>
@@ -286,17 +288,37 @@ class User extends React.Component {
                 <MyIcon
                   type="iconbianji"
                   className="pointer"
-                  // onClick={}
+                  onClick={() => this.setState({ editOrther: true })}
                 />
               </div>
             </div>
-            <OrtherChange
-              data={{
-                sex: detail.sex,
-                birthday: detail.birthday,
-                region: detail.region,
-              }}
-            />
+            <Spin spinning={loadingBottom}>
+              {editOrther ? (
+                <OrtherChange
+                  data={{
+                    sex: detail.sex,
+                    birthday: detail.birthday,
+                    region: detail.region,
+                  }}
+                  onCancel={() => this.setState({ editOrther: false })}
+                  onSuccess={(e) => {
+                    const { detail } = this.state;
+                    for (let i in e) {
+                      detail[i] = e[i];
+                    }
+                    this.setState({ detail, editOrther: false });
+                  }}
+                />
+              ) : (
+                <OrtherBasic
+                  data={{
+                    sex: detail.sex,
+                    birthday: detail.birthday,
+                    region: detail.region,
+                  }}
+                />
+              )}
+            </Spin>
           </div>
         </div>
       </div>
