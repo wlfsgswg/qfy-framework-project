@@ -222,23 +222,26 @@ export const timeStamp = (second_time) => {
 // 生成iframe方法
 export const handleGetIframe = (src, title, id) => {
   const iframeArr = document.querySelectorAll(".iframe-content");
-
+  let bol = false;
   for (let i = 0; i < iframeArr.length; i++) {
+    bol = bol || iframeArr[i].getAttribute("title") === title;
     if (iframeArr[i].getAttribute("title") === title) {
-      // 如果有先删掉
-      document.getElementById("root").removeChild(iframeArr[i]);
+      // 如果有直接显示
+      iframeArr[i].setAttribute("style", "display:inline-block;");
     } else {
       iframeArr[i].setAttribute("style", "display:none;");
     }
   }
-  // 重新生成该选项卡
-  const iframe = document.createElement("iframe");
-  iframe.setAttribute("src", src);
-  iframe.setAttribute("class", "iframe-content");
-  iframe.setAttribute("title", title);
-  iframe.setAttribute("id", id);
-  iframe.setAttribute("style", "display:inline-block;");
-  document.getElementById("root").append(iframe);
+  // 如果没有 重新生成该选项卡
+  if (!bol) {
+    const iframe = document.createElement("iframe");
+    iframe.setAttribute("src", src);
+    iframe.setAttribute("class", "iframe-content");
+    iframe.setAttribute("title", title);
+    iframe.setAttribute("id", id);
+    iframe.setAttribute("style", "display:inline-block;");
+    document.getElementById("root").append(iframe);
+  }
 };
 
 // 隐藏所有iframe
@@ -250,12 +253,33 @@ export const displayNoneAllIframe = () => {
 };
 
 // 匹配id特殊iframe显示
-
 export const displayBlockId = (id) => {
   const iframeArr = document.querySelectorAll(".iframe-content");
   for (let i = 0; i < iframeArr.length; i++) {
     if (iframeArr[i].getAttribute("id") === id) {
       iframeArr[i].setAttribute("style", "display:inline-block;");
+    }
+  }
+};
+// 匹配id特殊iframe刷新（先删除再生成）
+export const displayRefreshId = (id) => {
+  const iframeArr = document.querySelectorAll(".iframe-content");
+  for (let i = 0; i < iframeArr.length; i++) {
+    if (iframeArr[i].getAttribute("id") === id) {
+      // 获取原始数据
+      const src = iframeArr[i].getAttribute("src");
+      const id = iframeArr[i].getAttribute("id");
+      const title = iframeArr[i].getAttribute("title");
+      // 删除
+      document.getElementById("root").removeChild(iframeArr[i]);
+      // 重新生成
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute("src", src);
+      iframe.setAttribute("class", "iframe-content");
+      iframe.setAttribute("title", title);
+      iframe.setAttribute("id", id);
+      iframe.setAttribute("style", "display:inline-block;");
+      document.getElementById("root").append(iframe);
     }
   }
 };

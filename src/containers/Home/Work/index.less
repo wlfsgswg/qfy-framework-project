@@ -1,71 +1,84 @@
 @import './../../../theme/variable.less';
 
 .@{prefix}-home-work {
-    height          : 100%;
-    background-color: #fff;
+    height : 100%;
+    padding: 0 10px 10px;
+
 
     &-content {
+        height          : 100%;
+        background-color: #fff;
+
         &-work {
-            padding: 20px;
+            padding: 20px 0;
 
-            .title {
-                color         : #000;
-                font-weight   : 600;
-                font-size     : 25px;
-                padding-bottom: 20px;
-            }
+            .item {
+                padding: 0 20px;
 
-            .app-item {
-                padding-bottom: 30px;
+                .app-item {
+                    padding-bottom: 30px;
 
-                &-img {
-                    width : 110px;
-                    height: 110px;
-                    cursor: pointer;
+                    &-img {
+                        width : 70px;
+                        height: 70px;
+                        cursor: pointer;
 
-                    img {
-                        width : 100px;
-                        height: 100px;
+                        img {
+                            width : 60px;
+                            height: 60px;
+                        }
+                    }
+
+                    &-text {
+                        line-height: 22px;
+                        width      : calc(100% - 80px);
+
+                        &-title {
+                            color      : #000;
+                            font-weight: 600;
+                        }
+
+                        &-desc {
+                            // color : #497eef;
+                            height: 44px;
+                        }
                     }
                 }
 
-                &-text {
-                    line-height: 22px;
-                    width      : calc(100% - 120px);
+                .app2-item {
+                    padding-bottom: 20px;
 
-                    &-title {
+                    &-img {
+                        width        : 60px;
+                        height       : 60px;
+                        margin-right : 10px;
+                        border-radius: 10px;
+                        overflow     : hidden;
+                        border       : 2px solid #497eef;
+                        font-size    : 20px;
+                        line-height  : 60px;
+                        text-align   : center;
+                        cursor       : pointer;
+                    }
+
+                    &-text {
+                        line-height: 60px;
                         color      : #000;
                         font-weight: 600;
-                    }
-
-                    &-desc {
-                        color : #497eef;
-                        height: 44px;
+                        cursor     : pointer;
                     }
                 }
+
             }
 
-            .app2-item {
-                padding-bottom: 20px;
 
-                &-img {
-                    width        : 60px;
-                    height       : 60px;
-                    border-radius: 50%;
-                    overflow     : hidden;
-                    border       : 2px solid #497eef;
-                    font-size    : 20px;
-                    line-height  : 60px;
-                    text-align   : center;
-                    cursor       : pointer;
-                }
-
-                &-text {
-                    line-height: 60px;
-                    cursor     : pointer;
-                }
+            .diver {
+                width           : 100%;
+                height          : 20px;
+                background-color: #eef1f5;
             }
         }
+
 
     }
 

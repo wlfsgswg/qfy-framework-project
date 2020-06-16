@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { CloseOutlined } from "@ant-design/icons";
+import { displayRefreshId } from "./../../utils";
+import MyIcon from "./../MyIcon";
 import "./index.less";
 
 class FixMenu extends React.Component {
@@ -12,11 +14,29 @@ class FixMenu extends React.Component {
     this.state = {};
   }
   componentDidMount() {}
+  // 点击刷新执行请求
+  handleRefresh = () => {
+    // 此处需从redux读出此处对应的tab对象，然后把特定对象的iframe删除，然后重新插入页面
+    const { focus, onRefresh } = this.props;
+    if (focus === 1) {
+      // 工作台请求刷新走回调
+      onRefresh();
+    } else {
+      //非工作台直接删掉iframe重新生成
+      displayRefreshId(focus);
+    }
+  };
   render() {
     const { menu, focus, changeFocus, deleteMenu } = this.props;
     return (
       <div className={`${classPrefix}-component-fixmenu`}>
         <div className={`${classPrefix}-component-fixmenu-content clearfix`}>
+          <div
+            className={`${classPrefix}-component-fixmenu-content-sx l-left`}
+            onClick={this.handleRefresh}
+          >
+            <MyIcon type="iconshuaxin" className="icon" />
+          </div>
           {menu.map((it, i) => (
             <div
               className={`${
@@ -73,6 +93,7 @@ FixMenu.propTypes = {
   menu: PropTypes.array,
   history: PropTypes.object,
   location: PropTypes.object,
+  onRefresh: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {

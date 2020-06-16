@@ -3,31 +3,45 @@
 .@{prefix}-component-fixmenu {
     &-content {
         height          : @fixMenu;
-        background-color: #fff;
-        .menu-item{
-            background-color: #fff;
-            padding:0 40px 0 20px;
-            line-height: @fixMenu;
-            cursor: pointer;
-            border-left: 1px solid @border;
-            border-right: 1px solid @border;
-            position: relative;
-        }
-        .menu-item:not(:first-child){
-            border-left: none;
-        }
-        .menu-item-focus{
-            color: @borderGreen;
-            background-color: #fff;
-        }
-        .pos{
-            position: absolute;
-            top: 1px;
-            right: 5px;
+        background-color: #eef1f5;
 
-            .icon{
-                font-size: 14px;
-                color: #999;
+        &-sx {
+            line-height            : @fixMenu;
+            font-size              : 20px;
+            padding                : 0 10px;
+            background-color       : #dee7fb;
+            margin-right           : 5px;
+            border-top-left-radius : 5px;
+            border-top-right-radius: 5px;
+            cursor                 : pointer;
+
+            .icon {
+                color: @borderGreen;
+            }
+        }
+
+        .menu-item {
+            padding    : 0 30px 0 20px;
+            line-height: @fixMenu;
+            cursor     : pointer;
+            position   : relative;
+        }
+
+        .menu-item-focus {
+            color                  : @borderGreen;
+            background-color       : #fff;
+            border-top-left-radius : 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .pos {
+            position: absolute;
+            top     : 1px;
+            right   : 5px;
+
+            .icon {
+                font-size: 12px;
+                color    : #999;
             }
         }
     }

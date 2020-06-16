@@ -48,15 +48,16 @@ input::-webkit-inner-spin-button {
 }
 
 .iframe-content {
-  width   : calc(100vw - 45px - 30px - 10px);
+  width   : calc(100vw - 45px - 30px - 5px);
   // iframe和其他元素结构不同单独处理
-  height  : calc(100vh - @topMenuHeight - @fixMenu - 26px);
+  height  : calc(100vh - @topMenuHeight - @fixMenu - 10px);
   margin  : 0;
   padding : 0;
   position: fixed;
-  top     : (@topMenuHeight + @fixMenu + 13px);
+  top     : (@topMenuHeight + @fixMenu);
   right   : 10px;
-  border  : 8px solid lightseagreen;
+  // border  : 1px solid lightseagreen;
+  border  : none;
 
   -moz-border-bottom-colors: #555 #666 #777 #888 #999 #aaa #bbb #ccc;
 
