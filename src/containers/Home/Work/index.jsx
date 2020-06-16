@@ -77,11 +77,7 @@ class Work extends React.Component {
                       <Col span={colSpan} key={it.appId}>
                         <div className="clearfix app-item">
                           <div className="l-left m-r-10 app-item-img">
-                            {/* <img src={it.appImg} alt="图片出错" /> */}
-                            <img
-                              src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1068497470,486042733&fm=26&gp=0.jpg"
-                              alt="图片出错"
-                            />
+                            <img src={it.appImg} alt="图片出错" />
                           </div>
                           <div className="l-left app-item-text">
                             <div className=" app-item-text-title">
