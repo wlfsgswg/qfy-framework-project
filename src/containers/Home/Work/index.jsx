@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./index.less";
-import { Row, Col } from "antd";
+import { Row, Col, Button } from "antd";
 import { FixMenu } from "./../../../components";
 import { handleGetIframe } from "./../../../utils";
 const colSpan = 8;
@@ -83,9 +83,17 @@ class Work extends React.Component {
                             <div className=" app-item-text-title">
                               {it.appName}
                             </div>
-                            <div className="app-item-text-desc">
+                            <div
+                              className="app-item-text-desc line-2"
+                              title={it.appDesc}
+                            >
                               {it.appDesc}
                             </div>
+                            {it.isLogin && (
+                              <div>
+                                <Button type="primary">进入应用</Button>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </Col>
